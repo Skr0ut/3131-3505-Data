@@ -2,10 +2,12 @@ import numpy as np
 import seaborn as sns
 import pandas as pd
 import matplotlib.pyplot as plt
-from scipy.stats import ttest_ind
+#import base64
+#from scipy.stats import ttest_ind
+
 
 # Import Data from CSV
-df = pd.read_csv('https://raw.githubusercontent.com/Skr0ut/Portfolio-1/main/DataV2.csv?token=AWRQD5ORIB2AY3OZGUSRMTTBUD4WC')
+df = pd.read_csv('https://raw.githubusercontent.com/Skr0ut/Portfolio-1/main/Data.csv?token=AWRQD5K6OVZNAE5XWO6EKBTBUD5NI')
 
 # Removal of Trial Blocks
     # Note: originally 13 participants; 1 did only a trial block so their data is excluded.
@@ -30,8 +32,9 @@ df['rt_clean'] = np.where((~df['rt'].between(200,1000, inclusive=False)), df['rt
 
 ## Attentional Network Subtractions
 # Executive Control (Congruent - Incongruent Trials)
-dfEC = df[df.flanker != 'None']
-print(dfEC.groupby(['subj','flanker']))
+dfEC = df.groupby(['subj', 'flanker'])[['rt_mean']]
+#dfEC = dfEC['flanker' != 'None']
+print(dfEC.head())
 
 # Alerting (Tone present - tone absent (for non visually cued trials only))
 
@@ -45,8 +48,8 @@ print(dfEC.groupby(['subj','flanker']))
 #sns.catplot(data=df, x='bias', y='rt_clean', col='flanker', kind='box', palette='bright')
 
 # Error Rates for each flanker condition across both biases
-sns.catplot(data=df, x='flanker', y='err', col='bias', kind='bar', palette='bright')
+#sns.catplot(data=df, x='flanker', y='err', col='bias', kind='bar', palette='bright')
 
-plt.show()
+#plt.show()
 
 #plt.savefig('test.tiff', dpi=300)

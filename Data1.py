@@ -33,9 +33,9 @@ df['rt_clean'] = np.where((~df['rt'].between(200,1000, inclusive=False)), df['rt
 ## Attentional Network Subtractions
 # Executive Control (Incongruent - Congruent Trials)
 dfEC = df[(df['flanker'] != 'None') & (df['subj']) & (df['rt_clean'])]
-#dfEC['EC_score'] = dfEC.groupby(['subj', 'flanker'])['rt_clean']
+#dfEC['EC_score'] = dfEC.groupby(['subj']).transform(dfEC['incongruent'] - dfEC['incongruent'])
 
-print(dfEC.groupby(['subj', 'flanker'])['rt_clean'].describe())
+#print(dfEC.groupby(['subj', 'flanker'])['rt_clean'].describe())
 
 # Alerting (Tone present - tone absent (for non visually cued trials only))
 
@@ -44,13 +44,15 @@ print(dfEC.groupby(['subj', 'flanker'])['rt_clean'].describe())
 
 
 ## Graphing
-#sns.displot(data=df, bins=15, x='rt_clean', hue='bias', col='flanker', alpha = .4, kind='hist', palette='bright')
+    # RT distribution for each flanker condition (Histogram)
+sns.displot(data=df, bins=15, x='rt_clean', hue='bias', col='flanker', alpha = .4, kind='hist', palette='bright')
 
-#sns.catplot(data=df, x='bias', y='rt_clean', col='flanker', kind='box', palette='bright')
+    # Bias and RTs for each flanker condition (Box)
+sns.catplot(data=df, x='bias', y='rt_clean', col='flanker', kind='box', palette='bright')
 
-# Error Rates for each flanker condition across both biases
-#sns.catplot(data=df, x='flanker', y='err', col='bias', kind='bar', palette='bright')
+    # Error Rates for each flanker condition across both biases (Bar)
+sns.catplot(data=df, x='flanker', y='err', col='bias', kind='bar', palette='bright')
 
-#plt.show()
+plt.show()
 
-#plt.savefig('test.tiff', dpi=300)
+#plt.savefig('RT-distribution.tiff', dpi=300)

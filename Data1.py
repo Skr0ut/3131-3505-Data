@@ -24,17 +24,18 @@ df['rt_mean'] = df.groupby(['subj', 'flanker'])['rt_mean'].transform(lambda x: x
 
 # 3. Creating rt_clean to rt_mean for trials not between 200 and 1000 ms
 df['rt_clean'] = np.where((~df['rt'].between(200,1000, inclusive=False)), df['rt_mean'], df['rt'])
-## To check if Data cleaning worked
-#x = (np.where(~df['rt'].between(200,1000, inclusive=False)))
-#y = (np.where(df['rt'].between(200,1000, inclusive=False)))
-#print(df.iloc[x]#.describe())
-#print(df.iloc[y]#.describe())
+    ## To check if Data cleaning worked
+    #x = (np.where(~df['rt'].between(200,1000, inclusive=False)))
+    #y = (np.where(df['rt'].between(200,1000, inclusive=False)))
+    #print(df.iloc[x]#.describe())
+    #print(df.iloc[y]#.describe())
 
 ## Attentional Network Subtractions
-# Executive Control (Congruent - Incongruent Trials)
-dfEC = df.groupby(['subj', 'flanker'])[['rt_mean']]
-#dfEC = dfEC['flanker' != 'None']
-print(dfEC.head())
+# Executive Control (Incongruent - Congruent Trials)
+dfEC = df[(df['flanker'] != 'None') & (df['subj']) & (df['rt_clean'])]
+#dfEC['EC_score'] = dfEC.groupby(['subj', 'flanker'])['rt_clean']
+
+print(dfEC.groupby(['subj', 'flanker'])['rt_clean'].describe())
 
 # Alerting (Tone present - tone absent (for non visually cued trials only))
 

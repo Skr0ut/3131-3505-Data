@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from scipy.stats import ttest_ind
 
 # Import Data from CSV
-df = pd.read_csv('F:\Documents\Python Projects\\3131 Data V1\Data\\DataV2.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/Skr0ut/Portfolio-1/main/DataV2.csv?token=AWRQD5ORIB2AY3OZGUSRMTTBUD4WC')
 
 # Removal of Trial Blocks
     # Note: originally 13 participants; 1 did only a trial block so their data is excluded.
@@ -47,6 +47,6 @@ print(dfEC.groupby(['subj','flanker']))
 # Error Rates for each flanker condition across both biases
 sns.catplot(data=df, x='flanker', y='err', col='bias', kind='bar', palette='bright')
 
-#plt.show()
+plt.show()
 
-plt.savefig('test.tiff', dpi=300)
+#plt.savefig('test.tiff', dpi=300)

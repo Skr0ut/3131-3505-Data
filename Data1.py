@@ -2,9 +2,7 @@ import numpy as np
 import seaborn as sns
 import pandas as pd
 import matplotlib.pyplot as plt
-#import base64
-#from scipy.stats import ttest_ind
-
+from scipy.stats import ttest_ind
 
 # Import Data from CSV
 df = pd.read_csv('https://raw.githubusercontent.com/Skr0ut/Portfolio-1/main/Data.csv?token=AWRQD5K6OVZNAE5XWO6EKBTBUD5NI')
@@ -34,13 +32,13 @@ df['rt_clean'] = np.where((~df['rt'].between(200,1000, inclusive=False)), df['rt
 
 ## Graphing
     # RT distribution for each flanker condition (Histogram)
-sns.displot(data=df, bins=15, x='rt_clean', hue='bias', col='flanker', alpha = .4, kind='hist', palette='bright')
+sns.displot(data=df, bins=15, x='rt_clean', hue='bias', col='flanker', alpha = .4, kind='hist', palette='gray')
 
     # Bias and RTs for each flanker condition (Box)
-sns.catplot(data=df, x='bias', y='rt_clean', col='flanker', kind='box', palette='bright')
+sns.catplot(data=df, x='bias', y='rt_clean', col='flanker', kind='box', palette='gray')
 
     # Error Rates for each flanker condition across both biases (Bar)
-sns.catplot(data=df, x='flanker', y='err', col='bias', kind='bar', palette='bright')
+sns.catplot(data=df, x='flanker', y='err', col='bias', kind='bar', palette='gray')
 
 plt.show()
 

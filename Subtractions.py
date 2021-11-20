@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 #import base64
 #from scipy.stats import ttest_ind
 
-df = pd.read_csv('')
+df = pd.read_csv('https://raw.githubusercontent.com/Skr0ut/Portfolio-1/main/Cleaned_Data.csv?token=AWRQD5PWCLJ7FB26ITHTDEDBUKBLA')
 
 ## Attentional Network Subtractions
 # Executive Control (Incongruent - Congruent Trials)

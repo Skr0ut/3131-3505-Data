@@ -30,17 +30,6 @@ df['rt_clean'] = np.where((~df['rt'].between(200,1000, inclusive=False)), df['rt
     #print(df.iloc[x]#.describe())
     #print(df.iloc[y]#.describe())
 
-## Attentional Network Subtractions
-# Executive Control (Incongruent - Congruent Trials)
-dfEC = df[(df['flanker'] != 'None') & (df['subj']) & (df['rt_clean'])]
-#dfEC['EC_score'] = dfEC.groupby(['subj']).transform(dfEC['incongruent'] - dfEC['incongruent'])
-
-#print(dfEC.groupby(['subj', 'flanker'])['rt_clean'].describe())
-
-# Alerting (Tone present - tone absent (for non visually cued trials only))
-
-
-# Orienting (Cue present - cue absent (for non tone cued trials only))
 
 
 ## Graphing

@@ -1,0 +1,20 @@
+import numpy as np
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+#import base64
+#from scipy.stats import ttest_ind
+
+df = pd.read_csv('')
+
+## Attentional Network Subtractions
+# Executive Control (Incongruent - Congruent Trials)
+dfEC = df[(df['flanker'] != 'None') & (df['subj']) & (df['rt_clean'])]
+#dfEC['EC_score'] = dfEC.groupby(['subj']).transform(dfEC['incongruent'] - dfEC['incongruent'])
+
+#print(dfEC.groupby(['subj', 'flanker'])['rt_clean'].describe())
+
+# Alerting (Tone present - tone absent (for non visually cued trials only))
+
+
+# Orienting (Cue present - cue absent (for non tone cued trials only))

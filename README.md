@@ -1,9 +1,10 @@
 ## Portfolio: Max Mascini
 This is my submission for my Portfolio
-
-In this data evaluation I use what I have learned in this class to clean up the data, and produce some usefull graphs and statistics.
+This project is still a work in progress and I plan to continue to work on the data and eventually produce some statistical analysis.
 
 I have taken a data set from another class in which we conducted a replication experiment of the AttentionTrip Game.
+In this data evaluation I use what I have learned in this class to clean the data, and produce some usefull graphs.
+
 This experiment was run as an ipad 'game' which tests for function of three attentional networks: alerting, orienting, and executive function.
 
 #### The essential variables you need to know are: 

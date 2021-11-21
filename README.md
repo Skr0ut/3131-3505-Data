@@ -1,7 +1,8 @@
 ## AttentionTrip Data Evaluation
 
 I have taken a data set from another class in which we conducted a replication experiment of the AttentionTrip Game.
-In this data evaluation I use what I have learned in this class to clean the data, and produce some usefull graphs. This project is still a work in progress and I plan to continue to work on the data and eventually produce some statistical analysis.
+In this data evaluation I use what I have learned in this class to clean the data, and produce some usefull graphs. 
+This project is still a work in progress and I plan to continue to work on the data and eventually produce some statistical analysis.
 
 This experiment was run as an ipad 'game' which tests for function of three attentional networks: alerting, orienting, and executive function.
 #### The essential variables you need to know are: 

@@ -1,5 +1,6 @@
 ## Portfolio: Max Mascini
 This is my submission for my Portfolio
+
 This project is still a work in progress and I plan to continue to work on the data and eventually produce some statistical analysis.
 
 I have taken a data set from another class in which we conducted a replication experiment of the AttentionTrip Game.

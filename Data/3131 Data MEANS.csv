@@ -1,4 +1,4 @@
-Condition,Cue,tone,distractor,bias,rt,rt sd,acc,acc sd
+Condition,Cue,tone,flanker,bias,rt,rt sd,acc,acc sd
 1,n,none,congruent,acc,772.2846,37.97214,0.9866667,0.02981424
 2,y,none,congruent,acc,635.6367,52.72804,1,0
 3,n,sound_1,congruent,acc,694.9642,42.34964,0.9875,0.02795085

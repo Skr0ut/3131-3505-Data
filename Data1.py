@@ -15,13 +15,13 @@ print(df['phase'].unique())
 ## Outlier Replacing
 # 1. Calculating mean RT's per subject for each flanker condition for non-outlier trials
     # Note: Outliers determined by RT's >200ms or <1000ms
-df['rt_mean'] = df[(df['rt'].between(200,1000, inclusive=False))].groupby(['subj', 'flanker'])['rt'].transform(np.mean)
+df['rt_mean'] = df[(df['rt'].between(350,1000, inclusive=False))].groupby(['subj', 'flanker'])['rt'].transform(np.mean)
 
 # 2. Replacing rows with RT's >200 & <1000 ms to have mean subject RT for each flanker condition
 df['rt_mean'] = df.groupby(['subj', 'flanker'])['rt_mean'].transform(lambda x: x.fillna(np.nanmean(x)))
 
 # 3. Creating rt_clean to rt_mean for trials not between 200 and 1000 ms
-df['rt_clean'] = np.where((~df['rt'].between(200,1000, inclusive=False)), df['rt_mean'], df['rt'])
+df['rt_clean'] = np.where((~df['rt'].between(350,1000, inclusive=False)), df['rt_mean'], df['rt'])
     ## To check if Data cleaning worked
     #x = (np.where(~df['rt'].between(200,1000, inclusive=False)))
     #y = (np.where(df['rt'].between(200,1000, inclusive=False)))
@@ -32,13 +32,15 @@ df['rt_clean'] = np.where((~df['rt'].between(200,1000, inclusive=False)), df['rt
 
 ## Graphing
     # RT distribution for each flanker condition (Histogram)
-sns.displot(data=df, bins=15, x='rt_clean', hue='bias', col='flanker', alpha = .4, kind='hist', palette='gray')
+#sns.displot(data=df, bins=15, x='rt_clean', hue='bias', col='flanker', alpha = .4, kind='hist', palette='gray')
 
     # Bias and RTs for each flanker condition (Box)
-sns.catplot(data=df, x='bias', y='rt_clean', col='flanker', kind='box', palette='gray')
+#sns.catplot(data=df, x='bias', y='rt_clean', col='flanker', kind='box', palette='gray')
 
     # Error Rates for each flanker condition across both biases (Bar)
-sns.catplot(data=df, x='flanker', y='err', col='bias', kind='bar', palette='gray')
+#sns.catplot(data=df, x='flanker', y='err', col='bias', kind='bar', palette='gray')
+
+sns.relplot(data=df, x='rt_clean', y='err', col='bias', hue='flanker', kind='line', palette='gray')
 
 plt.show()
 

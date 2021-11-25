@@ -12,6 +12,11 @@ df = pd.read_csv('https://raw.githubusercontent.com/Skr0ut/Portfolio-1/main/Clea
 dfEC = df[(df['flanker'] != 'None') & (df['subj']) & (df['rt_clean'])]
 #dfEC['EC_score'] = dfEC.groupby(['subj']).transform(dfEC['incongruent'] - dfEC['incongruent'])
 
+for r, flank in enumerate(df):
+    for c, subj in enumerate(df):
+
+
+
 #print(dfEC.groupby(['subj', 'flanker'])['rt_clean'].describe())
 
 # Alerting (Tone present - tone absent (for non visually cued trials only))
